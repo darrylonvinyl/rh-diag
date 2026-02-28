@@ -1,0 +1,14 @@
+{
+	"name": "rh-diag Dev Container",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"golang.Go"
+			]
+		}
+	},
+	"remoteUser": "vscode"
+}
