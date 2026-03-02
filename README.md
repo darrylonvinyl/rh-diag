@@ -73,14 +73,16 @@ Internet Ping   : [PASS] (Reachable against 8.8.8.8)
 Summary: Hardware and basic system routing look HEALTHY.
 ```
 
-## Development
+### Developing & Testing
 
-A `.devcontainer` is strictly included for VS Code and Docker to easily stand up an isolated Go 1.21 environment complete with networking utilities (`iproute2`, `dnsutils`, `iputils-ping`) without clustering your host machine.
+A `.devcontainer` is provided for VS Code users, but if you just have Docker installed locally, you can use the standard Make targets to handle dependency injection and isolated testing without cluttering your host machine.
 
-### Running Tests
-
-If you have Docker available locally, you can run the full test suite using our testing container:
-
+**Run the unified test suite natively in Linux:**
 ```bash
-docker run --rm -v $(pwd):/app -w /app golang:1.21 bash -c 'apt-get update && apt-get install -y iproute2 iputils-ping && go test -v ./pkg/diag/...'
+make test
+```
+
+**Compile the binary for Linux locally (without needing Go installed):**
+```bash
+make build
 ```
